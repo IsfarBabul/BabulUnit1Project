@@ -13,11 +13,11 @@ public class RestaurantTipCalculator {
         System.out.println("Welcome to the tip calculator!");
         System.out.print("How many people are in your group: ");
         numPeople = scan.nextInt();
-        System.out.print("What's the tip percentage? (0-100): ");
-        tipPercentage = scan.nextInt();
         System.out.print("What U.S.state are you in (if your not in a U.S. state type anything else)? ");
         americanState = scan.nextLine();
-        System.out.print("How many people are in your group: ");
+        System.out.print("What's the tip percentage? (0-100): ");
+        tipPercentage = scan.nextInt();
+        System.out.print("What's the coupon percentage? (0-50): ");
         numPeople = scan.nextInt();
 
 
