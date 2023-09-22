@@ -37,7 +37,7 @@ public class RestaurantTipCalculator {
             System.out.print("That's not a valid coupon percentage. Try again: ");
             couponPercentage = scan.nextInt();
         }
-
+        //asking for items and costs
         while (end = false) {
             System.out.print("Enter a cost in dollars and cents, e.g. 7.49 (type any negative number to end): ");
             itemPrice = scan.nextDouble();
@@ -47,6 +47,7 @@ public class RestaurantTipCalculator {
                 end = true
             }
         }
+
 
 
 
