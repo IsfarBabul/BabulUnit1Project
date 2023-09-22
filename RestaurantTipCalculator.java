@@ -10,7 +10,9 @@ public class RestaurantTipCalculator {
         int tipPercentage;
         int couponPercentage;
         State americanState;
-        int totalPrice;
+        double totalPrice = 0;
+        double itemPrice = 0;
+        boolean end = false;
 
         System.out.println("Welcome to the tip calculator!");
         //number of people
@@ -34,6 +36,16 @@ public class RestaurantTipCalculator {
         while (tipPercentage < 0 && tipPercentage > 50) {
             System.out.print("That's not a valid coupon percentage. Try again: ");
             couponPercentage = scan.nextInt();
+        }
+
+        while (end = false) {
+            System.out.print("Enter a cost in dollars and cents, e.g. 7.49 (type any negative number to end): ");
+            itemPrice = scan.nextDouble();
+            if (itemPrice >= 0) {
+                totalPrice += itemPrice
+            } else {
+                end = true
+            }
         }
 
 
