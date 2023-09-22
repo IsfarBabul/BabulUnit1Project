@@ -13,6 +13,17 @@ public class RestaurantTipCalculator {
         double totalPrice = 0;
         double itemPrice = 0;
         boolean end = false;
+        String americanStatesList[] = {"alabama", "alaska", "arizona", "arkansas", "california",
+                                       "colorado", "connecticut", "delaware", "florida", "georgia",
+                                       "hawaii", "idaho", "illinois", "indiana", "iowa",
+                                       "kansas", "kentucky", "louisiana", "maine", "maryland",
+                                       "massachusetts", "michigan", "minnesota", "mississippi", "missouri",
+                                       "montana", "nebraska", "nevada", "new hampshire", "new jersey",
+                                       "new mexico", "new york", "north carolina", "north dakota", "ohio",
+                                       "oklahoma", "oregon", "pennsylvania", "rhode island", "south carolina",
+                                       "south dakota", "tennessee", "texas", "utah", "vermont",
+                                       "virginia", "washington", "west virginia", "wisconsin", "wyoming",
+                                       "american somoa", "guam", "northern mariana islands", "puerto rico", "united states virgin islands"}
 
         System.out.println("Welcome to the tip calculator!");
         //number of people
