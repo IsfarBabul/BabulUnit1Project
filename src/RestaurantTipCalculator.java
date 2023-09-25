@@ -60,8 +60,11 @@ public class RestaurantTipCalculator {
             }
         }
 
-
-
+        System.out.println("-------------------------------");
+        System.out.println("Total bill before coupons, sales tax, and tip: $" + totalPrice);
+        System.out.println("Coupon Percentage: " + couponPercentage + "%");
+        System.out.println("Total bill before coupons, sales tax, and tip: $" + totalPrice);
+        System.out.println("Coupon Percentage: " + couponPercentage + "%");
 
 
     }
