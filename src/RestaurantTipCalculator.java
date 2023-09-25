@@ -8,6 +8,7 @@ public class RestaurantTipCalculator {
 
         int numPeople;
         int tipPercentage;
+        double salesTaxPercentage;
         int couponPercentage;
         String americanState;
         double totalPrice = 0;
@@ -24,6 +25,17 @@ public class RestaurantTipCalculator {
                 "south dakota", "tennessee", "texas", "utah", "vermont",
                 "virginia", "washington", "west virginia", "wisconsin", "wyoming",
                 "american somoa", "guam", "northern mariana islands", "puerto rico", "united states virgin islands"};
+
+        double[] salesTaxList = {4.00, 0.00, 5.60, 6.50, 7.25,
+                                 2.90, 6.35, 0.00, 6.00, 4.00,
+                                 4.00, 6.00, 6.25, 7.00, 6.00,
+                                 6.50, 6.00, 4.45, 5.50, 6.00,
+                                 6.25, 6.00, 6.875, 7.00, 4.225,
+                                 0.00, 5.50, 6.85, 0.00, 6.625,
+                                 5.00, 4.00, 4.75, 5.00, 5.75,
+                                 4.50, 0.00, 6.00, 7.00, 6.00,
+                                 5.30, 6.50, 6.00, 5.00, 4.00,
+                                 15.00, 2.00, 0.00, 10.50, 0.00};  //sales tax as of January 1, 2023 by taxfoundation.org
 
         System.out.println("Welcome to the tip calculator!");
         //number of people
@@ -64,7 +76,18 @@ public class RestaurantTipCalculator {
         System.out.println("Total bill before coupons, sales tax, and tip: $" + totalPrice);
         System.out.println("Coupon Percentage: " + couponPercentage + "%");
         System.out.println("Total bill before coupons, sales tax, and tip: $" + totalPrice);
+        System.out.println("Amount reduced by coupon: " + couponPercentage);
+        System.out.println("Total bill with coupon: $" + totalPrice);
+
+        System.out.println("Sales Tax Percentage: " + couponPercentage + "%");
+        System.out.println("Total bill before coupons, sales tax, and tip: $" + totalPrice);
+        System.out.println("Amount reduced by coupon: " + couponPercentage);
+        System.out.println("Total bill with coupon: $" + totalPrice);
+
         System.out.println("Coupon Percentage: " + couponPercentage + "%");
+        System.out.println("Total bill before coupons, sales tax, and tip: $" + totalPrice);
+        System.out.println("Amount reduced by coupon: " + couponPercentage);
+        System.out.println("Total bill with coupon: $" + totalPrice);
 
 
     }
