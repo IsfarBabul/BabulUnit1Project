@@ -58,6 +58,7 @@ public class RestaurantTipCalculator {
                 indexNumber++;
             }
         }
+        salesTaxPercentage = indexNumber;
         //enter tip percentage (this is applied after coupons and sales tax)
         System.out.print("What's the tip percentage? (0-100): ");
         tipPercentage = scan.nextInt();
@@ -84,22 +85,30 @@ public class RestaurantTipCalculator {
         }
 
         System.out.println("-------------------------------");
-        System.out.println("Total bill before coupons, sales tax, and tip: $" + totalPrice);
-        System.out.println("Coupon Percentage: " + couponPercentage + "%");
-        System.out.println("Total bill before coupons, sales tax, and tip: $" + totalPrice);
-        System.out.println("Amount reduced by coupon: " + couponPercentage);
-        System.out.println("Total bill with coupon: $" + totalPrice);
-
-        System.out.println("Sales Tax Percentage: " + couponPercentage + "%");
-        System.out.println("Total bill before coupons, sales tax, and tip: $" + totalPrice);
-        System.out.println("Amount reduced by coupon: " + couponPercentage);
-        System.out.println("Total bill with coupon: $" + totalPrice);
+        System.out.println("Total bill before coupon, sales tax, and tip: $" + totalPrice);
+        System.out.println("Per person cost before coupon, sales tax, and tip: %" + (totalPrice / numPeople));
 
         System.out.println("Coupon Percentage: " + couponPercentage + "%");
-        System.out.println("Total bill before coupons, sales tax, and tip: $" + totalPrice);
-        System.out.println("Amount reduced by coupon: " + couponPercentage);
+        System.out.println("Total reduced by coupon: " + (totalPrice * couponPercentage));
+        totalPrice *= (1 - couponPercentage / 100);
         System.out.println("Total bill with coupon: $" + totalPrice);
 
+        System.out.println("Sales Tax Percentage: " + salesTaxPercentage + "%");
+        double salesTax = totalPrice * salesTaxPercentage;
+        System.out.println("Total sales tax: $" + salesTax);
+        System.out.println("Sales tax per person: $" + (salesTax / numPeople));
+        totalPrice += salesTax;
+        System.out.println("Total bill with coupon and sales tax: $" + totalPrice);
+
+        System.out.println("Tip Percentage: " + tipPercentage + "%");
+        double tipTotal = totalPrice * tipPercentage;
+        System.out.println("Total tip: $" + tipTotal);
+        System.out.println("Tip per person: $" + (tipTotal / numPeople));
+        totalPrice += tipTotal;
+        System.out.println("Total bill after coupon, sales tax, and tip: $" + totalPrice);
+        System.out.println("-------------------------------");
+
+        System.out.println("Total bill: $" + totalPrice);
 
     }
 }
