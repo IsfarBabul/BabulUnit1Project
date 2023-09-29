@@ -1,6 +1,5 @@
 import java.util.Scanner;
 import java.util.*;
-import java.util.Arrays;
 
 public class RestaurantTipCalculator {
     public static void main(String[] args) {
@@ -85,7 +84,7 @@ public class RestaurantTipCalculator {
         }
 
         System.out.println("-------------------------------");
-        System.out.println("Total bill before coupon, sales tax, and tip: $" + totalPrice);
+        System.out.println("Total bill before coupon, sales tax, and tip: $" + Rounding.priceRound(totalPrice));
         System.out.println("Per person cost before coupon, sales tax, and tip: %" + (totalPrice / numPeople));
 
         System.out.println("Coupon Percentage: " + couponPercentage + "%");
