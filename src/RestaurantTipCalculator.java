@@ -1,11 +1,13 @@
 import java.util.Scanner;
 import java.util.*;
-import java.util.Arrays;
+import java.text.DecimalFormat;
 
 public class RestaurantTipCalculator {
     public static void main(String[] args) {
 
         Scanner scan = new Scanner(System.in);
+
+        DecimalFormat df_obj = new DecimalFormat("#.##");
 
         int numPeople;
         int tipPercentage;
@@ -35,8 +37,11 @@ public class RestaurantTipCalculator {
                 0.00, 5.50, 6.85, 0.00, 6.625,
                 5.00, 4.00, 4.75, 5.00, 5.75,
                 4.50, 0.00, 6.00, 7.00, 6.00,
+                4.50, 7.00, 6.25, 6.10, 6.00,
                 5.30, 6.50, 6.00, 5.00, 4.00,
                 15.00, 2.00, 0.00, 10.50, 0.00};  //sales tax as of January 1, 2023 by taxfoundation.org
+
+        String[] foodList = {};
 
         System.out.println("Welcome to the tip calculator!");
         //number of people
@@ -58,7 +63,7 @@ public class RestaurantTipCalculator {
                 indexNumber++;
             }
         }
-        salesTaxPercentage = indexNumber;
+        salesTaxPercentage = salesTaxList[indexNumber];
         //enter tip percentage (this is applied after coupons and sales tax)
         System.out.print("What's the tip percentage? (0-100): ");
         tipPercentage = scan.nextInt();
@@ -85,30 +90,31 @@ public class RestaurantTipCalculator {
         }
 
         System.out.println("-------------------------------");
-        System.out.println("Total bill before coupon, sales tax, and tip: $" + totalPrice);
-        System.out.println("Per person cost before coupon, sales tax, and tip: %" + (totalPrice / numPeople));
+        System.out.println("Total bill before coupon, sales tax, and tip: $" + df_obj.format(totalPrice));
+        System.out.println("Per person cost before coupon, sales tax, and tip: $" + df_obj.format((totalPrice / numPeople)));
 
         System.out.println("Coupon Percentage: " + couponPercentage + "%");
-        System.out.println("Total reduced by coupon: " + (totalPrice * couponPercentage));
-        totalPrice *= (1 - couponPercentage / 100);
-        System.out.println("Total bill with coupon: $" + totalPrice);
+        double couponReduction = totalPrice * (couponPercentage * .01);
+        System.out.println("Total reduced by coupon: $" + df_obj.format(couponReduction));
+        totalPrice -= couponReduction;
+        System.out.println("Total bill with coupon: $" + df_obj.format(totalPrice));
 
         System.out.println("Sales Tax Percentage: " + salesTaxPercentage + "%");
-        double salesTax = totalPrice * salesTaxPercentage;
-        System.out.println("Total sales tax: $" + salesTax);
-        System.out.println("Sales tax per person: $" + (salesTax / numPeople));
+        double salesTax = totalPrice * (salesTaxPercentage * .01);
+        System.out.println("Total sales tax: $" + df_obj.format(salesTax));
+        System.out.println("Sales tax per person: $" + df_obj.format((salesTax / numPeople)));
         totalPrice += salesTax;
-        System.out.println("Total bill with coupon and sales tax: $" + totalPrice);
+        System.out.println("Total bill with coupon and sales tax: $" + df_obj.format(totalPrice));
 
         System.out.println("Tip Percentage: " + tipPercentage + "%");
-        double tipTotal = totalPrice * tipPercentage;
-        System.out.println("Total tip: $" + tipTotal);
-        System.out.println("Tip per person: $" + (tipTotal / numPeople));
+        double tipTotal = totalPrice * (tipPercentage * .01);
+        System.out.println("Total tip: $" + df_obj.format(tipTotal));
+        System.out.println("Tip per person: $" + df_obj.format((tipTotal / numPeople)));
         totalPrice += tipTotal;
-        System.out.println("Total bill after coupon, sales tax, and tip: $" + totalPrice);
+        System.out.println("Total bill after coupon, sales tax, and tip: $" + df_obj.format(totalPrice));
         System.out.println("-------------------------------");
 
-        System.out.println("Total bill: $" + totalPrice);
+        System.out.println("Total bill: $" + df_obj.format(totalPrice));
 
     }
 }
