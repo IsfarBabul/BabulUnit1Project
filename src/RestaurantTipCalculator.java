@@ -116,7 +116,7 @@ public class RestaurantTipCalculator {
                 end = true;
             }
         }
-
+        //asking for a donation to the totally very well known Rick Astley foundation
         System.out.println("The Rick Astley foundation aspires to help economically disadvantaged singers build a career.");
         System.out.println("Donating even a single dollar will help aspiring new singers to grow.");
         System.out.println("We encourage you to round up your final bill total to donate to the Rick Astley foundation.");
@@ -150,30 +150,32 @@ public class RestaurantTipCalculator {
                 }
             }
         }
-
+        //output
         System.out.println("-------------------------------");
+        //bill with only item prices
         System.out.println("Total bill before coupon, sales tax, and tip: $" + df_obj.format(totalPrice));
         System.out.println("Per person cost before coupon, sales tax, and tip: $" + df_obj.format(totalPrice / numPeople));
-
+        //coupon reduction applied
         System.out.println("Coupon Percentage: " + couponPercentage + "%");
         double couponReduction = totalPrice * (couponPercentage * .01);
         System.out.println("Total reduced by coupon: $" + df_obj.format(couponReduction));
         totalPrice -= couponReduction;
         System.out.println("Total bill with coupon: $" + df_obj.format(totalPrice));
-
+        //sales tax included
         System.out.println("Sales Tax Percentage: " + salesTaxPercentage + "%");
         double salesTax = totalPrice * (salesTaxPercentage * .01);
         System.out.println("Total sales tax: $" + df_obj.format(salesTax));
         System.out.println("Sales tax per person: $" + df_obj.format(salesTax / numPeople));
         totalPrice += salesTax;
         System.out.println("Total bill with coupon and sales tax: $" + df_obj.format(totalPrice));
-
+        //tip factored in
         System.out.println("Tip Percentage: " + tipPercentage + "%");
         double tipTotal = totalPrice * (tipPercentage * .01);
         System.out.println("Total tip: $" + df_obj.format(tipTotal));
         System.out.println("Tip per person: $" + df_obj.format((tipTotal / numPeople)));
         totalPrice += tipTotal;
         System.out.println("Total bill after coupon, sales tax, and tip: $" + df_obj.format(totalPrice));
+        //donation added (the if statement used for rounding up total bill)
         if (roundUp) {
             double initialTotal = totalPrice;
             if (totalPrice % (int) totalPrice > 0.5) {
@@ -188,15 +190,17 @@ public class RestaurantTipCalculator {
         }
         System.out.println("Donation: $" + df_obj.format(donation));
         System.out.println("-------------------------------");
+        /* prints list of items (I had to learn how to use arrays and arrayLists thanks Mr. Miller for
+        making me learn stuff from a different unit for my FIRST AP CSA project! */
         System.out.println("Items ordered: ");
         int i;
         for (i = 0; i < amountOfItems; i++) {
             System.out.println(foodArray[i]);
         }
         System.out.println("-------------------------------");
+        //overall total bill that includes everything from tips to donations
         System.out.println("Total bill: $" + df_obj.format(totalPrice));
         System.out.println("-------------------------------");
-
 
     }
 }
